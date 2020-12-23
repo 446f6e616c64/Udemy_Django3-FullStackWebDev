@@ -1,3 +1,7 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
 <h1>Donald's Blog</h1>
 
 <p>Donald has written {{ articles.count }} article{{ articles.count|pluralize }}.</p>
@@ -9,3 +13,5 @@
 <p>{{ article.description|striptags|truncatechars:100 }}</p>
 
 {% endfor %}
+
+{% endblock %}
