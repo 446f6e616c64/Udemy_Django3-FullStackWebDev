@@ -1,9 +1,17 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
 <h1>Donald's Blog</h1>
+
+<p>Donald has written {{ articles.count }} article{{ articles.count|pluralize }}.</p>
 
 {% for article in articles %}
 
-<h2>{{ article.title }}</h2>
+<a href="{% url 'blog:detail' article.id %}"><h2>{{ article.title }}</h2></a>
 <p>{{ article.date }}</p>
-<p>{{ article.description }}</p>
+<p>{{ article.description|striptags|truncatechars:100 }}</p>
 
 {% endfor %}
+
+{% endblock %}
